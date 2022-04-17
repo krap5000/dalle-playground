@@ -114,7 +114,7 @@ def generate_images(prompt:str, num_predictions: int):
 
       # decode images
       decoded_images = p_decode(encoded_images, vqgan.params)
-      decoded_images = decoded_images.clip(0.0, 1.0).reshape((-1, 256, 256, 3))
+      decoded_images = decoded_images.clip(0.0, 1.0).reshape((-1, 512, 512, 3))
       for img in decoded_images:
           images.append(Image.fromarray(np.asarray(img * 255, dtype=np.uint8)))
         
